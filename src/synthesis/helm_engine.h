@@ -22,6 +22,9 @@
 #include "helm_common.h"
 #include "helm_module.h"
 
+// wasn't here before
+#include "JuceHeader.h"
+
 namespace mopo {
   class Arpeggiator;
   class HelmVoiceHandler;
@@ -33,7 +36,7 @@ namespace mopo {
   // The overall helm engine. All audio processing is contained in here.
   class HelmEngine : public HelmModule, public NoteHandler {
     public:
-      HelmEngine();
+      HelmEngine(AudioSampleBuffer* inputBuffer);
       virtual ~HelmEngine();
 
       void init() override;
@@ -41,6 +44,8 @@ namespace mopo {
       void process() override;
       void setBufferSize(int buffer_size) override;
       void setSampleRate(int sample_rate) override;
+
+	  void grabBuffer(AudioSampleBuffer* buffer);
 
       std::set<ModulationConnection*> getModulationConnections() { return mod_connections_; }
       bool isModulationActive(ModulationConnection* connection);
@@ -80,6 +85,7 @@ namespace mopo {
       HelmLfo* lfo_2_;
       PeakMeter* peak_meter_;
       StepGenerator* step_sequencer_;
+	  AudioSampleBuffer* input_buffer_;
 
       std::set<ModulationConnection*> mod_connections_;
   };

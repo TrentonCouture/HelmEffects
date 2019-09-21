@@ -45,7 +45,7 @@ SynthesisInterface::SynthesisInterface(
   keyboard_->setMouseClickGrabsKeyboardFocus(false);
 
   addSubSection(mixer_section_ = new MixerSection("MIXER"));
-  addSubSection(oscillator_section_ = new OscillatorSection("OSCILLATORS"));
+  //addSubSection(oscillator_section_ = new OscillatorSection("OSCILLATORS"));
   addSubSection(poly_lfo_section_ = new LfoSection("POLY LFO", "poly_lfo", false));
   addSubSection(reverb_section_ = new ReverbSection("REVERB"));
   addSubSection(distortion_section_ = new DistortionSection("DISTORTION"));

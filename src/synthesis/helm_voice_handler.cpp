@@ -25,6 +25,7 @@
 #include "helm_oscillators.h"
 #include "trigger_random.h"
 #include "value_switch.h"
+#include "audio_input.h"
 
 #include <sstream>
 
@@ -97,6 +98,11 @@ namespace mopo {
       beats_per_second_(beats_per_second) {
     output_ = new Multiply();
     registerOutput(output_->output());
+  }
+
+  void HelmVoiceHandler::grabBuffer(AudioSampleBuffer* buffer) {
+	audio_input_ = new AudioInput(buffer);
+	//audio_input_ = std::make_shared<AudioInput>(buffer);
   }
 
   void HelmVoiceHandler::init() {
@@ -290,9 +296,11 @@ namespace mopo {
     addProcessor(sub_oscillator);
     addProcessor(smooth_sub_volume);
 
+
     Add *oscillator_sum = new Add();
     oscillator_sum->plug(oscillators, 0);
     oscillator_sum->plug(sub_oscillator, 1);
+    //oscillator_sum->plug(audioInput, 2);
 
     addProcessor(oscillator_sum);
 
@@ -338,6 +346,7 @@ namespace mopo {
     addProcessor(osc_feedback_samples);
     addProcessor(osc_feedback_samples_audio);
 
+
     cr::Clamp* osc_feedback_amount_clamped = new cr::Clamp();
     osc_feedback_amount_clamped->plug(osc_feedback_amount);
 
@@ -345,8 +354,15 @@ namespace mopo {
     osc_feedback_amount_audio->plug(osc_feedback_amount_clamped, LinearSmoothBuffer::kValue);
     osc_feedback_amount_audio->plug(reset, LinearSmoothBuffer::kTrigger);
 
+    //audio_input_->plug(oscillator_sum, 0);
+    //audio_input_->plug(noise_oscillator, 1);
+
+	audio_input_->plug(oscillator_noise_sum, 0);
+	addProcessor(audio_input_);
+
     osc_feedback_ = new SimpleDelay(MAX_FEEDBACK_SAMPLES);
-    osc_feedback_->plug(oscillator_noise_sum, SimpleDelay::kAudio);
+    //osc_feedback_->plug(oscillator_noise_sum, SimpleDelay::kAudio);
+    osc_feedback_->plug(audio_input_, SimpleDelay::kAudio);
     osc_feedback_->plug(osc_feedback_samples_audio, SimpleDelay::kSampleDelay);
     osc_feedback_->plug(osc_feedback_amount_audio, SimpleDelay::kFeedback);
     osc_feedback_->plug(reset, SimpleDelay::kReset);
@@ -746,6 +762,8 @@ namespace mopo {
   }
 
   void HelmVoiceHandler::process() {
+	
+
     setLegato(legato_->output()->buffer[0]);
     VoiceHandler::process();
     note_retriggered_.clearTrigger();

@@ -23,12 +23,24 @@
 #define MAX_BUFFER_PROCESS 256
 #define SET_PROGRAM_WAIT_MILLISECONDS 500
 
-HelmPlugin::HelmPlugin() {
+HelmPlugin::HelmPlugin()
+#ifndef JucePlugin_PreferredChannelConfigurations
+	: AudioProcessor(BusesProperties()
+#if ! JucePlugin_IsMidiEffect
+#if ! JucePlugin_IsSynth
+		.withInput("Input", AudioChannelSet::stereo(), true)
+#endif
+		.withOutput("Output", AudioChannelSet::stereo(), true)
+#endif
+	)
+#endif
+{
   set_state_time_ = 0;
 
   current_program_ = 0;
 
   loadPatches();
+
 
   for (auto control : controls_) {
     ValueBridge* bridge = new ValueBridge(control.first, control.second);
@@ -36,6 +48,7 @@ HelmPlugin::HelmPlugin() {
     bridge_lookup_[control.first] = bridge;
     addParameter(bridge);
   }
+
 }
 
 HelmPlugin::~HelmPlugin() {
@@ -153,6 +166,7 @@ void HelmPlugin::prepareToPlay(double sample_rate, int buffer_size) {
   engine_.setSampleRate(sample_rate);
   engine_.setBufferSize(std::min<int>(buffer_size, MAX_BUFFER_PROCESS));
   midi_manager_->setSampleRate(sample_rate);
+  input_buffer_->setSize(2, buffer_size);
 }
 
 void HelmPlugin::releaseResources() {
@@ -161,8 +175,20 @@ void HelmPlugin::releaseResources() {
 }
 
 void HelmPlugin::processBlock(AudioSampleBuffer& buffer, MidiBuffer& midi_messages) {
+  //input_buffer_ = &buffer;
+  //input_buffer_->copyFrom(buffer); //I think if you just reassign the pointer, then all the AudioInputs' pointers will still point to the old location. should copy samples in
+
   int total_samples = buffer.getNumSamples();
   int num_channels = getTotalNumOutputChannels();
+
+  for (int channel = 0; channel < num_channels; channel++) {
+    auto inputBuff = input_buffer_->getWritePointer(channel);
+	auto buff = buffer.getReadPointer(channel);
+    for (int i = 0; i < total_samples; i++) {
+	  inputBuff[i] = buff[i];
+    }
+  }
+
   getPlayHead()->getCurrentPosition(position_info_);
   if (position_info_.bpm)
     engine_.setBpm(position_info_.bpm);

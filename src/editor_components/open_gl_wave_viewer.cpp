@@ -24,7 +24,8 @@
 #define PADDING 5.0f
 #define MARKER_WIDTH 12.0f
 #define NOISE_RESOLUTION 6
-#define IMAGE_HEIGHT 256
+//#define IMAGE_HEIGHT 256
+#define IMAGE_HEIGHT 128
 
 namespace {
   static const float random_values[NOISE_RESOLUTION] = {0.3f, 0.9f, -0.9f, -0.2f, -0.5f, 0.7f };

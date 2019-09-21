@@ -21,6 +21,7 @@
 #include "helm_voice_handler.h"
 #include "peak_meter.h"
 #include "value_switch.h"
+#include "audio_input.h"
 
 #ifdef __APPLE__
 #include <fenv.h>
@@ -30,7 +31,9 @@
 
 namespace mopo {
 
-  HelmEngine::HelmEngine() : was_playing_arp_(false) {
+  HelmEngine::HelmEngine(AudioSampleBuffer* inputBuffer) : was_playing_arp_(false) {
+	//voice_handler_->grabBuffer(inputBuffer);
+	input_buffer_ = inputBuffer;
     init();
     bps_ = controls_["beats_per_minute"];
   }
@@ -38,6 +41,10 @@ namespace mopo {
   HelmEngine::~HelmEngine() {
     while (mod_connections_.size())
       disconnectModulation(*mod_connections_.begin());
+  }
+
+  void HelmEngine::grabBuffer(AudioSampleBuffer* buffer) {
+	voice_handler_->grabBuffer(buffer);
   }
 
   void HelmEngine::init() {
@@ -54,9 +61,16 @@ namespace mopo {
     Output* polyphony = createMonoModControl("polyphony", true);
 
     voice_handler_ = new HelmVoiceHandler(beats_per_second_clamped->output());
+	voice_handler_->grabBuffer(input_buffer_);
     addSubmodule(voice_handler_);
     voice_handler_->setPolyphony(32);
     voice_handler_->plug(polyphony, VoiceHandler::kPolyphony);
+
+	/*
+	AudioInput* audioInput = new AudioInput();
+	addProcessor(audioInput);
+	*/
+
 
     // Monophonic LFO 1.
     lfo_1_retrigger_ = createBaseControl("mono_lfo_1_retrigger");
@@ -174,7 +188,9 @@ namespace mopo {
     cr::MagnitudeScale* distortion_gain = new cr::MagnitudeScale();
     distortion_gain->plug(distortion_drive);
 
+	// maybe need both activated to get audioInput to make sound. maybe not
     distortion->plug(voice_handler_, Distortion::kAudio);
+    //distortion->plug(audioInput, Distortion::kAudio);
     distortion->plug(distortion_on, Distortion::kOn);
     distortion->plug(distortion_type, Distortion::kType);
     distortion->plug(distortion_gain, Distortion::kDrive);

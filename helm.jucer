@@ -4,15 +4,17 @@
               bundleIdentifier="org.tytel.helmplugin" includeBinaryInAppConfig="1"
               buildVST="1" buildVST3="1" buildAU="1" buildRTAS="0" buildAAX="0"
               pluginName="Helm" pluginDesc="" pluginManufacturer="Matt Tytel"
-              pluginManufacturerCode="Tyte" pluginCode="Helm" pluginChannelConfigs="{0, 1}, {0, 2}"
-              pluginIsSynth="1" pluginWantsMidiIn="1" pluginProducesMidiOut="0"
-              pluginSilenceInIsSilenceOut="0" pluginEditorRequiresKeys="1"
-              pluginAUExportPrefix="helm" pluginRTASCategory="" aaxIdentifier="org.tytel.helm"
-              pluginAAXCategory="2048" jucerVersion="5.3.2" companyName="Matt Tytel"
-              companyEmail="matthewtytel@gmail.com" companyWebsite="tytel.org"
-              pluginIsMidiEffectPlugin="0" buildAUv3="0" displaySplashScreen="1"
-              reportAppUsage="1" splashScreenColour="Dark" buildStandalone="0"
-              enableIAA="0" pluginFormats="buildVST,buildVST3,buildAU" pluginCharacteristicsValue="pluginIsSynth,pluginWantsMidiIn,pluginEditorRequiresKeys">
+              pluginManufacturerCode="Tyte" pluginCode="Helm" pluginIsSynth="0"
+              pluginWantsMidiIn="1" pluginProducesMidiOut="0" pluginSilenceInIsSilenceOut="0"
+              pluginEditorRequiresKeys="1" pluginAUExportPrefix="helm" pluginRTASCategory=""
+              aaxIdentifier="org.tytel.helm" pluginAAXCategory="2048" jucerVersion="5.4.4"
+              companyName="Matt Tytel" companyEmail="matthewtytel@gmail.com"
+              companyWebsite="tytel.org" pluginIsMidiEffectPlugin="0" buildAUv3="0"
+              displaySplashScreen="1" reportAppUsage="1" splashScreenColour="Dark"
+              buildStandalone="0" enableIAA="0" pluginFormats="buildVST,buildVST3,buildAU"
+              pluginCharacteristicsValue="pluginWantsMidiIn,pluginEditorRequiresKeys"
+              pluginRTASDisableBypass="0" pluginRTASDisableMultiMono="0" pluginAAXDisableBypass="0"
+              pluginAAXDisableMultiMono="0" pluginVST3Category="Fx,Instrument">
   <MAINGROUP id="OwcEM5" name="Helm">
     <GROUP id="{600DADF0-4925-DDC4-81CF-48B3BAC03E18}" name="concurrentqueue">
       <FILE id="eNsxUt" name="blockingconcurrentqueue.h" compile="0" resource="0"
@@ -443,6 +445,8 @@
         <FILE id="yYGbwS" name="value_bridge.h" compile="0" resource="0" file="src/plugin/value_bridge.h"/>
       </GROUP>
       <GROUP id="{A96D5AAE-0076-8457-E00A-AD803B7FD9A7}" name="synthesis">
+        <FILE id="gRHPKf" name="audio_input.cpp" compile="1" resource="0" file="src/synthesis/audio_input.cpp"/>
+        <FILE id="Jb079e" name="audio_input.h" compile="0" resource="0" file="src/synthesis/audio_input.h"/>
         <FILE id="q7labq" name="dc_filter.cpp" compile="1" resource="0" file="src/synthesis/dc_filter.cpp"/>
         <FILE id="oHDgvd" name="dc_filter.h" compile="0" resource="0" file="src/synthesis/dc_filter.h"/>
         <FILE id="tVaauO" name="detune_lookup.cpp" compile="1" resource="0"
@@ -490,6 +494,12 @@
               file="src/synthesis/value_switch.cpp"/>
         <FILE id="XP12Aw" name="value_switch.h" compile="0" resource="0" file="src/synthesis/value_switch.h"/>
       </GROUP>
+    </GROUP>
+    <GROUP id="{FBC40351-1402-5DA2-7B87-348101DFAE68}" name="unit_tests">
+      <FILE id="RtMiW8" name="audio_input_test.cpp" compile="1" resource="0"
+            file="audio_input_test.cpp"/>
+      <FILE id="zYtMV8" name="audio_input_test.h" compile="0" resource="0"
+            file="audio_input_test.h"/>
     </GROUP>
   </MAINGROUP>
   <EXPORTFORMATS>
@@ -598,5 +608,6 @@
   <JUCEOPTIONS JUCE_QUICKTIME="disabled" JUCE_WEB_BROWSER="0"/>
   <LIVE_SETTINGS>
     <OSX/>
+    <WINDOWS/>
   </LIVE_SETTINGS>
 </JUCERPROJECT>

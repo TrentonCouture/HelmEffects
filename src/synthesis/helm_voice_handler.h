@@ -21,6 +21,9 @@
 #include "mopo.h"
 #include "helm_common.h"
 #include "helm_module.h"
+#include "audio_input.h"
+
+#include "JuceHeader.h"
 
 #include <vector>
 
@@ -47,11 +50,14 @@ namespace mopo {
   class HelmVoiceHandler : public virtual VoiceHandler, public virtual HelmModule {
     public:
       HelmVoiceHandler(Output* beats_per_second);
-      virtual ~HelmVoiceHandler() { } // Should probably delete things.
+	  virtual ~HelmVoiceHandler() { } // Should probably delete things.
 
       void init() override;
 
       void process() override;
+
+	  void grabBuffer(AudioSampleBuffer* buffer);
+
       void noteOn(mopo_float note, mopo_float velocity = 1,
                   int sample = 0, int channel = 0) override;
       VoiceEvent noteOff(mopo_float note, int sample = 0) override;
@@ -78,6 +84,9 @@ namespace mopo {
       void createFilter(Output* audio, Output* keytrack, Output* reset);
 
       void setupPolyModulationReadouts();
+
+	  AudioInput* audio_input_;
+	  //std::shared_ptr<AudioInput> audio_input_;
 
       Output* beats_per_second_;
 

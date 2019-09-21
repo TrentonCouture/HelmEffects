@@ -23,7 +23,7 @@
 
 #define OUTPUT_WINDOW_MIN_NOTE 16.0
 
-SynthBase::SynthBase() {
+SynthBase::SynthBase() : input_buffer_(new AudioSampleBuffer(2, 515)), engine_(input_buffer_) {
   controls_ = engine_.getControls();
 
   keyboard_state_ = new MidiKeyboardState();
@@ -224,6 +224,8 @@ void SynthBase::processAudio(AudioSampleBuffer* buffer, int channels, int sample
 
   if (engine_.getBufferSize() != samples)
     engine_.setBufferSize(samples);
+
+  //engine_.grabBuffer(buffer);
 
   engine_.process();
 
