@@ -116,7 +116,6 @@ class SynthBase : public MidiManager::Listener {
                                          const mopo::mopo_float* right);
 
     mopo::ModulationConnectionBank modulation_bank_;
-	AudioSampleBuffer* input_buffer_;
     mopo::HelmEngine engine_;
     ScopedPointer<MidiManager> midi_manager_;
     ScopedPointer<MidiKeyboardState> keyboard_state_;

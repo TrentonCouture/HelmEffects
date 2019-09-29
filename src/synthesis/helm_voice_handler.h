@@ -56,8 +56,6 @@ namespace mopo {
 
       void process() override;
 
-	  void grabBuffer(AudioSampleBuffer* buffer);
-
       void noteOn(mopo_float note, mopo_float velocity = 1,
                   int sample = 0, int channel = 0) override;
       VoiceEvent noteOff(mopo_float note, int sample = 0) override;

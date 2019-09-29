@@ -577,6 +577,10 @@
 			isa = PBXBuildFile;
 			fileRef = 4E8A25627AEF6B318DB1ABDC;
 		};
+		1BC45986B53FA16B4464B131 = {
+			isa = PBXBuildFile;
+			fileRef = E5762406571AC154C2843979;
+		};
 		0900B224FF6695D824B546CA = {
 			isa = PBXBuildFile;
 			fileRef = FD473119A5704C48A31241A7;
@@ -1938,13 +1942,6 @@
 			path = "../../src/editor_components/text_slider.cpp";
 			sourceTree = "SOURCE_ROOT";
 		};
-		86A848AA3537F1FFABEDB67F = {
-			isa = PBXFileReference;
-			lastKnownFileType = sourcecode.cpp.objcpp;
-			name = "include_juce_audio_plugin_client_AU_1.mm";
-			path = "../../JuceLibraryCode/include_juce_audio_plugin_client_AU_1.mm";
-			sourceTree = "SOURCE_ROOT";
-		};
 		87F682F0C11CE2C602B7B571 = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.c.h;
@@ -1978,20 +1975,6 @@
 			lastKnownFileType = sourcecode.cpp.cpp;
 			name = "step_generator.cpp";
 			path = "../../mopo/src/step_generator.cpp";
-			sourceTree = "SOURCE_ROOT";
-		};
-		8E527D3748F876E6C0562F34 = {
-			isa = PBXFileReference;
-			lastKnownFileType = file;
-			name = "juce_audio_plugin_client";
-			path = "../../JUCE/modules/juce_audio_plugin_client";
-			sourceTree = "SOURCE_ROOT";
-		};
-		8FEE6E7DB6B04FF026E76D58 = {
-			isa = PBXFileReference;
-			lastKnownFileType = file;
-			name = "juce_audio_basics";
-			path = "../../JUCE/modules/juce_audio_basics";
 			sourceTree = "SOURCE_ROOT";
 		};
 		90ED1C2BADB034071C510556 = {
@@ -2050,13 +2033,6 @@
 			path = "../../src/editor_sections/distortion_section.h";
 			sourceTree = "SOURCE_ROOT";
 		};
-		9BCCE08642C61A51063A3F73 = {
-			isa = PBXFileReference;
-			lastKnownFileType = file;
-			name = "juce_opengl";
-			path = "../../JUCE/modules/juce_opengl";
-			sourceTree = "SOURCE_ROOT";
-		};
 		A9A621517BC017AC268BFD79 = {
 			isa = PBXFileReference;
 			lastKnownFileType = image.png;
@@ -2106,6 +2082,13 @@
 			path = "Info-VST.plist";
 			sourceTree = "SOURCE_ROOT";
 		};
+		86A848AA3537F1FFABEDB67F = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.cpp.objcpp;
+			name = "include_juce_audio_plugin_client_AU_1.mm";
+			path = "../../JuceLibraryCode/include_juce_audio_plugin_client_AU_1.mm";
+			sourceTree = "SOURCE_ROOT";
+		};
 		88B501F3951C324CCCEAC8D3 = {
 			isa = PBXFileReference;
 			lastKnownFileType = file.xpm;
@@ -2120,11 +2103,25 @@
 			path = "../../src/editor_components/modulation_slider.cpp";
 			sourceTree = "SOURCE_ROOT";
 		};
+		8E527D3748F876E6C0562F34 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			name = "juce_audio_plugin_client";
+			path = "../../JUCE/modules/juce_audio_plugin_client";
+			sourceTree = "SOURCE_ROOT";
+		};
 		8EC5BB145E8441F232F15341 = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.cpp.cpp;
 			name = reverb.cpp;
 			path = ../../mopo/src/reverb.cpp;
+			sourceTree = "SOURCE_ROOT";
+		};
+		8FEE6E7DB6B04FF026E76D58 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			name = "juce_audio_basics";
+			path = "../../JUCE/modules/juce_audio_basics";
 			sourceTree = "SOURCE_ROOT";
 		};
 		900D0F3C49D8FDE1B07AF957 = {
@@ -2174,6 +2171,13 @@
 			lastKnownFileType = sourcecode.cpp.cpp;
 			name = "bpm_slider.cpp";
 			path = "../../src/editor_components/bpm_slider.cpp";
+			sourceTree = "SOURCE_ROOT";
+		};
+		9BCCE08642C61A51063A3F73 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			name = "juce_opengl";
+			path = "../../JUCE/modules/juce_opengl";
 			sourceTree = "SOURCE_ROOT";
 		};
 		9EE595F732D7F07E08410E43 = {
@@ -2855,6 +2859,13 @@
 			path = "../../src/editor_sections/patch_browser.cpp";
 			sourceTree = "SOURCE_ROOT";
 		};
+		E1909CE5343C394331AB9021 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.h;
+			name = "input_processor.h";
+			path = "../../src/synthesis/input_processor.h";
+			sourceTree = "SOURCE_ROOT";
+		};
 		E1FFC68912831EC2A9908180 = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.c.h;
@@ -2895,6 +2906,13 @@
 			lastKnownFileType = sourcecode.cpp.cpp;
 			name = "reverb_all_pass.cpp";
 			path = "../../mopo/src/reverb_all_pass.cpp";
+			sourceTree = "SOURCE_ROOT";
+		};
+		E5762406571AC154C2843979 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.cpp.cpp;
+			name = "input_processor.cpp";
+			path = "../../src/synthesis/input_processor.cpp";
 			sourceTree = "SOURCE_ROOT";
 		};
 		E5F0D57DC82BECEFE6D45ABE = {
@@ -3517,6 +3535,8 @@
 				F4EAD407353B8F649B9B90C4,
 				4E8A25627AEF6B318DB1ABDC,
 				64DCC7A2E4C7DB986D957779,
+				E5762406571AC154C2843979,
+				E1909CE5343C394331AB9021,
 				FD473119A5704C48A31241A7,
 				5D6108E60C69030195DB3769,
 				789D292ABEB5DBCC24C5579A,
@@ -3736,6 +3756,7 @@
 					"../../src/look_and_feel",
 					"../../src/standalone",
 					"../../src/synthesis",
+					"C:\ASIOSDK2.3\common",
 					"../../JUCE/modules/juce_audio_plugin_client",
 					"$(inherited)",
 				);
@@ -3801,6 +3822,7 @@
 					"../../src/look_and_feel",
 					"../../src/standalone",
 					"../../src/synthesis",
+					"C:\ASIOSDK2.3\common",
 					"../../JUCE/modules/juce_audio_plugin_client",
 					"$(inherited)",
 				);
@@ -3864,6 +3886,7 @@
 					"../../src/look_and_feel",
 					"../../src/standalone",
 					"../../src/synthesis",
+					"C:\ASIOSDK2.3\common",
 					"../../JUCE/modules/juce_audio_plugin_client",
 					"$(inherited)",
 				);
@@ -3929,6 +3952,7 @@
 					"../../src/look_and_feel",
 					"../../src/standalone",
 					"../../src/synthesis",
+					"C:\ASIOSDK2.3\common",
 					"../../JUCE/modules/juce_audio_plugin_client",
 					"$(inherited)",
 				);
@@ -3992,6 +4016,7 @@
 					"../../src/look_and_feel",
 					"../../src/standalone",
 					"../../src/synthesis",
+					"C:\ASIOSDK2.3\common",
 					"../../JUCE/modules/juce_audio_plugin_client",
 					"$(inherited)",
 				);
@@ -4058,6 +4083,7 @@
 					"../../src/look_and_feel",
 					"../../src/standalone",
 					"../../src/synthesis",
+					"C:\ASIOSDK2.3\common",
 					"../../JUCE/modules/juce_audio_plugin_client",
 					"$(inherited)",
 				);
@@ -4119,6 +4145,7 @@
 					"../../src/look_and_feel",
 					"../../src/standalone",
 					"../../src/synthesis",
+					"C:\ASIOSDK2.3\common",
 					"../../JUCE/modules/juce_audio_plugin_client",
 					"$(inherited)",
 				);
@@ -4178,6 +4205,7 @@
 					"../../src/look_and_feel",
 					"../../src/standalone",
 					"../../src/synthesis",
+					"C:\ASIOSDK2.3\common",
 					"../../JUCE/modules/juce_audio_plugin_client",
 					"$(inherited)",
 				);
@@ -4236,6 +4264,7 @@
 					"../../src/look_and_feel",
 					"../../src/standalone",
 					"../../src/synthesis",
+					"C:\ASIOSDK2.3\common",
 					"../../JUCE/modules/juce_audio_plugin_client",
 					"$(inherited)",
 				);
@@ -4295,6 +4324,7 @@
 					"../../src/look_and_feel",
 					"../../src/standalone",
 					"../../src/synthesis",
+					"C:\ASIOSDK2.3\common",
 					"../../JUCE/modules/juce_audio_plugin_client",
 					"$(inherited)",
 				);
@@ -4844,6 +4874,7 @@
 				B026C8A3ED774A236154F566,
 				0A016368725EA23AB4F89BCF,
 				14987E91306F721EC4CFADDF,
+				1BC45986B53FA16B4464B131,
 				0900B224FF6695D824B546CA,
 				36F471B8B5162104C2D6509C,
 				1B62051630A127092A1FDF56,

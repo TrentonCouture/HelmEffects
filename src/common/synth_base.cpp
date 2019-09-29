@@ -23,7 +23,7 @@
 
 #define OUTPUT_WINDOW_MIN_NOTE 16.0
 
-SynthBase::SynthBase() : input_buffer_(new AudioSampleBuffer(2, 515)), engine_(input_buffer_) {
+SynthBase::SynthBase() {
   controls_ = engine_.getControls();
 
   keyboard_state_ = new MidiKeyboardState();

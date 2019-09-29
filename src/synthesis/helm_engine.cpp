@@ -31,9 +31,8 @@
 
 namespace mopo {
 
-  HelmEngine::HelmEngine(AudioSampleBuffer* inputBuffer) : was_playing_arp_(false) {
+  HelmEngine::HelmEngine() : was_playing_arp_(false) {
 	//voice_handler_->grabBuffer(inputBuffer);
-	input_buffer_ = inputBuffer;
     init();
     bps_ = controls_["beats_per_minute"];
   }
@@ -41,10 +40,6 @@ namespace mopo {
   HelmEngine::~HelmEngine() {
     while (mod_connections_.size())
       disconnectModulation(*mod_connections_.begin());
-  }
-
-  void HelmEngine::grabBuffer(AudioSampleBuffer* buffer) {
-	voice_handler_->grabBuffer(buffer);
   }
 
   void HelmEngine::init() {
@@ -61,7 +56,6 @@ namespace mopo {
     Output* polyphony = createMonoModControl("polyphony", true);
 
     voice_handler_ = new HelmVoiceHandler(beats_per_second_clamped->output());
-	voice_handler_->grabBuffer(input_buffer_);
     addSubmodule(voice_handler_);
     voice_handler_->setPolyphony(32);
     voice_handler_->plug(polyphony, VoiceHandler::kPolyphony);

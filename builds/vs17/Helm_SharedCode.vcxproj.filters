@@ -780,6 +780,9 @@
     <ClCompile Include="..\..\src\synthesis\helm_voice_handler.cpp">
       <Filter>Helm\src\synthesis</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\src\synthesis\input_processor.cpp">
+      <Filter>Helm\src\synthesis</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\src\synthesis\noise_oscillator.cpp">
       <Filter>Helm\src\synthesis</Filter>
     </ClCompile>
@@ -2934,6 +2937,9 @@
       <Filter>Helm\src\synthesis</Filter>
     </ClInclude>
     <ClInclude Include="..\..\src\synthesis\helm_voice_handler.h">
+      <Filter>Helm\src\synthesis</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\synthesis\input_processor.h">
       <Filter>Helm\src\synthesis</Filter>
     </ClInclude>
     <ClInclude Include="..\..\src\synthesis\noise_oscillator.h">

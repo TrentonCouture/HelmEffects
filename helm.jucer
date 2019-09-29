@@ -14,7 +14,8 @@
               buildStandalone="1" enableIAA="0" pluginFormats="buildAU,buildStandalone,buildVST,buildVST3"
               pluginCharacteristicsValue="pluginWantsMidiIn,pluginEditorRequiresKeys"
               pluginRTASDisableBypass="0" pluginRTASDisableMultiMono="0" pluginAAXDisableBypass="0"
-              pluginAAXDisableMultiMono="0" pluginVST3Category="Fx,Instrument">
+              pluginAAXDisableMultiMono="0" pluginVST3Category="Fx,Instrument"
+              headerPath="C:\ASIOSDK2.3\common">
   <MAINGROUP id="OwcEM5" name="Helm">
     <GROUP id="{600DADF0-4925-DDC4-81CF-48B3BAC03E18}" name="concurrentqueue">
       <FILE id="eNsxUt" name="blockingconcurrentqueue.h" compile="0" resource="0"
@@ -483,6 +484,10 @@
               file="src/synthesis/helm_voice_handler.cpp"/>
         <FILE id="RQDmw6" name="helm_voice_handler.h" compile="0" resource="0"
               file="src/synthesis/helm_voice_handler.h"/>
+        <FILE id="JokByO" name="input_processor.cpp" compile="1" resource="0"
+              file="src/synthesis/input_processor.cpp"/>
+        <FILE id="yDKq38" name="input_processor.h" compile="0" resource="0"
+              file="src/synthesis/input_processor.h"/>
         <FILE id="FPX4kz" name="noise_oscillator.cpp" compile="1" resource="0"
               file="src/synthesis/noise_oscillator.cpp"/>
         <FILE id="ZraUKZ" name="noise_oscillator.h" compile="0" resource="0"
@@ -613,7 +618,7 @@
     <MODULE id="juce_gui_extra" showAllCode="1" useLocalCopy="0"/>
     <MODULE id="juce_opengl" showAllCode="1" useLocalCopy="0"/>
   </MODULES>
-  <JUCEOPTIONS JUCE_QUICKTIME="disabled" JUCE_WEB_BROWSER="0"/>
+  <JUCEOPTIONS JUCE_QUICKTIME="disabled" JUCE_WEB_BROWSER="0" JUCE_ASIO="1"/>
   <LIVE_SETTINGS>
     <OSX/>
     <WINDOWS/>

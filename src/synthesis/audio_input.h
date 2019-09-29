@@ -8,14 +8,14 @@
   ==============================================================================
 */
 
-#include "processor.h"
+#include "input_processor.h"
 #include "JuceHeader.h"
 
 #pragma once
 
 namespace mopo {
 
-  class AudioInput : public Processor {
+  class AudioInput : public InputProcessor {
   public:
 
 	AudioInput();

@@ -12,8 +12,8 @@
 
 namespace mopo {
 
-	AudioInput::AudioInput() : Processor(1, 1) {}
-	AudioInput::AudioInput(AudioSampleBuffer* buffer) : Processor(1, 1) { 
+	AudioInput::AudioInput() : InputProcessor(1, 1) {}
+	AudioInput::AudioInput(AudioSampleBuffer* buffer) : InputProcessor(1, 1) { 
 	  temp_buffer_ = buffer;
 	}
 
@@ -27,9 +27,9 @@ namespace mopo {
 	// since it has a pitch shifted metallic sound which usually means something happining in each buffer. Maybe you could try out that
 	// guy's audio buffer debugger tool
 	void AudioInput::process() {
-		const float* source = temp_buffer_->getReadPointer(0);
+		const float* source = input_buffer_.getReadPointer(0);
 		mopo_float* dest = output()->buffer;
-		for (int i = 0; i < 512; ++i) {
+		for (int i = 0; i < 256; ++i) {
 		  //output()->buffer[i] = mopo_float((i % 100) / (mopo_float)200);
 		  output()->buffer[i] = (mopo_float)source[i];
 		}

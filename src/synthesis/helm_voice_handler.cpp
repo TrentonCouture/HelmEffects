@@ -100,11 +100,6 @@ namespace mopo {
     registerOutput(output_->output());
   }
 
-  void HelmVoiceHandler::grabBuffer(AudioSampleBuffer* buffer) {
-	audio_input_ = new AudioInput(buffer);
-	//audio_input_ = std::make_shared<AudioInput>(buffer);
-  }
-
   void HelmVoiceHandler::init() {
     // Create modulation and pitch wheels per channel.
     choose_pitch_wheel_ = new Gate();
@@ -357,6 +352,7 @@ namespace mopo {
     //audio_input_->plug(oscillator_sum, 0);
     //audio_input_->plug(noise_oscillator, 1);
 
+	audio_input_ = new AudioInput();
 	audio_input_->plug(oscillator_noise_sum, 0);
 	addProcessor(audio_input_);
 

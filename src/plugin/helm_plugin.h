@@ -21,6 +21,7 @@
 
 #include "synth_base.h"
 #include "value_bridge.h"
+#include "audio_input.h"
 
 class ValueBridge;
 
@@ -71,6 +72,8 @@ class HelmPlugin : public SynthBase, public AudioProcessor, public ValueBridge::
     void loadPatches();
 
   private:
+	mopo::AudioInput audio_input_;
+
     uint32 set_state_time_;
 
     int current_program_;
