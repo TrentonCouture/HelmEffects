@@ -42,7 +42,10 @@ ifeq ($(CONFIG),Debug)
   JUCE_LDFLAGS_VST := -shared -Wl,--no-undefined
   JUCE_TARGET_VST := helm.so
 
-  JUCE_CPPFLAGS_SHARED_CODE := -DJucePlugin_Build_VST=1 -DJucePlugin_Build_VST3=0 -DJucePlugin_Build_AU=0 -DJucePlugin_Build_AUv3=0 -DJucePlugin_Build_RTAS=0 -DJucePlugin_Build_AAX=0 -DJucePlugin_Build_Standalone=0 -DJucePlugin_Build_Unity=0 -DJUCE_SHARED_CODE=1
+  JUCE_CPPFLAGS_STANDALONE_PLUGIN := -DJucePlugin_Build_VST=0 -DJucePlugin_Build_VST3=0 -DJucePlugin_Build_AU=0 -DJucePlugin_Build_AUv3=0 -DJucePlugin_Build_RTAS=0 -DJucePlugin_Build_AAX=0 -DJucePlugin_Build_Standalone=1 -DJucePlugin_Build_Unity=0
+  JUCE_TARGET_STANDALONE_PLUGIN := helm
+
+  JUCE_CPPFLAGS_SHARED_CODE := -DJucePlugin_Build_VST=1 -DJucePlugin_Build_VST3=0 -DJucePlugin_Build_AU=0 -DJucePlugin_Build_AUv3=0 -DJucePlugin_Build_RTAS=0 -DJucePlugin_Build_AAX=0 -DJucePlugin_Build_Standalone=1 -DJucePlugin_Build_Unity=0 -DJUCE_SHARED_CODE=1
   JUCE_TARGET_SHARED_CODE := helm.a
 
   JUCE_CFLAGS += $(JUCE_CPPFLAGS) $(TARGET_ARCH) -fPIC -g -ggdb -O0 $(DEBCXXFLAGS) -ffast-math $(SIMDFLAGS) -ftree-vectorize -ftree-slp-vectorize $(CFLAGS)
@@ -69,7 +72,10 @@ ifeq ($(CONFIG),Release)
   JUCE_LDFLAGS_VST := -shared -Wl,--no-undefined
   JUCE_TARGET_VST := helm.so
 
-  JUCE_CPPFLAGS_SHARED_CODE := -DJucePlugin_Build_VST=1 -DJucePlugin_Build_VST3=0 -DJucePlugin_Build_AU=0 -DJucePlugin_Build_AUv3=0 -DJucePlugin_Build_RTAS=0 -DJucePlugin_Build_AAX=0 -DJucePlugin_Build_Standalone=0 -DJucePlugin_Build_Unity=0 -DJUCE_SHARED_CODE=1
+  JUCE_CPPFLAGS_STANDALONE_PLUGIN := -DJucePlugin_Build_VST=0 -DJucePlugin_Build_VST3=0 -DJucePlugin_Build_AU=0 -DJucePlugin_Build_AUv3=0 -DJucePlugin_Build_RTAS=0 -DJucePlugin_Build_AAX=0 -DJucePlugin_Build_Standalone=1 -DJucePlugin_Build_Unity=0
+  JUCE_TARGET_STANDALONE_PLUGIN := helm
+
+  JUCE_CPPFLAGS_SHARED_CODE := -DJucePlugin_Build_VST=1 -DJucePlugin_Build_VST3=0 -DJucePlugin_Build_AU=0 -DJucePlugin_Build_AUv3=0 -DJucePlugin_Build_RTAS=0 -DJucePlugin_Build_AAX=0 -DJucePlugin_Build_Standalone=1 -DJucePlugin_Build_Unity=0 -DJUCE_SHARED_CODE=1
   JUCE_TARGET_SHARED_CODE := helm.a
 
   JUCE_CFLAGS += $(JUCE_CPPFLAGS) $(TARGET_ARCH) -fPIC -O3 $(DEBCXXFLAGS) -ffast-math $(SIMDFLAGS) -ftree-vectorize -ftree-slp-vectorize $(CFLAGS)
@@ -83,6 +89,9 @@ OBJECTS_ALL := \
 
 OBJECTS_VST := \
   $(JUCE_OBJDIR)/include_juce_audio_plugin_client_VST2_1e16d9b9.o \
+
+OBJECTS_STANDALONE_PLUGIN := \
+  $(JUCE_OBJDIR)/include_juce_audio_plugin_client_Standalone_c6ff8483.o \
 
 OBJECTS_SHARED_CODE := \
   $(JUCE_OBJDIR)/alias_3b4a33b.o \
@@ -170,6 +179,8 @@ OBJECTS_SHARED_CODE := \
   $(JUCE_OBJDIR)/filter_section_9094381c.o \
   $(JUCE_OBJDIR)/formant_section_51494d55.o \
   $(JUCE_OBJDIR)/full_interface_29b5f507.o \
+  $(JUCE_OBJDIR)/input_section_ef83a5bc.o \
+  $(JUCE_OBJDIR)/input_volume_section_a9e94c93.o \
   $(JUCE_OBJDIR)/lfo_section_f85fa167.o \
   $(JUCE_OBJDIR)/mixer_section_9e4a737b.o \
   $(JUCE_OBJDIR)/noise_section_31fdfd0c.o \
@@ -227,11 +238,12 @@ OBJECTS_SHARED_CODE := \
   $(JUCE_OBJDIR)/include_juce_gui_extra_e7ac9489.o \
   $(JUCE_OBJDIR)/include_juce_opengl_95d8f91c.o \
 
-.PHONY: clean all strip VST
+.PHONY: clean all strip VST Standalone
 
-all : VST
+all : VST Standalone
 
 VST : $(JUCE_OUTDIR)/$(JUCE_TARGET_VST)
+Standalone : $(JUCE_OUTDIR)/$(JUCE_TARGET_STANDALONE_PLUGIN)
 
 
 $(JUCE_OUTDIR)/$(JUCE_TARGET_VST) : $(OBJECTS_VST) $(RESOURCES) $(JUCE_OUTDIR)/$(JUCE_TARGET_SHARED_CODE)
@@ -242,6 +254,15 @@ $(JUCE_OUTDIR)/$(JUCE_TARGET_VST) : $(OBJECTS_VST) $(RESOURCES) $(JUCE_OUTDIR)/$
 	-$(V_AT)mkdir -p $(JUCE_LIBDIR)
 	-$(V_AT)mkdir -p $(JUCE_OUTDIR)
 	$(V_AT)$(CXX) -o $(JUCE_OUTDIR)/$(JUCE_TARGET_VST) $(OBJECTS_VST) $(JUCE_OUTDIR)/$(JUCE_TARGET_SHARED_CODE) $(JUCE_LDFLAGS) $(JUCE_LDFLAGS_VST) $(RESOURCES) $(TARGET_ARCH)
+
+$(JUCE_OUTDIR)/$(JUCE_TARGET_STANDALONE_PLUGIN) : $(OBJECTS_STANDALONE_PLUGIN) $(RESOURCES) $(JUCE_OUTDIR)/$(JUCE_TARGET_SHARED_CODE)
+	@command -v pkg-config >/dev/null 2>&1 || { echo >&2 "pkg-config not installed. Please, install it."; exit 1; }
+	@pkg-config --print-errors alsa libcurl x11 xinerama xext freetype2
+	@echo Linking "Helm - Standalone Plugin"
+	-$(V_AT)mkdir -p $(JUCE_BINDIR)
+	-$(V_AT)mkdir -p $(JUCE_LIBDIR)
+	-$(V_AT)mkdir -p $(JUCE_OUTDIR)
+	$(V_AT)$(CXX) -o $(JUCE_OUTDIR)/$(JUCE_TARGET_STANDALONE_PLUGIN) $(OBJECTS_STANDALONE_PLUGIN) $(JUCE_OUTDIR)/$(JUCE_TARGET_SHARED_CODE) $(JUCE_LDFLAGS) $(JUCE_LDFLAGS_STANDALONE_PLUGIN) $(RESOURCES) $(TARGET_ARCH)
 
 $(JUCE_OUTDIR)/$(JUCE_TARGET_SHARED_CODE) : $(OBJECTS_SHARED_CODE) $(RESOURCES)
 	@command -v pkg-config >/dev/null 2>&1 || { echo >&2 "pkg-config not installed. Please, install it."; exit 1; }
@@ -256,6 +277,11 @@ $(JUCE_OBJDIR)/include_juce_audio_plugin_client_VST2_1e16d9b9.o: ../../../JuceLi
 	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling include_juce_audio_plugin_client_VST2.cpp"
 	$(V_AT)$(CXX) $(JUCE_CXXFLAGS) $(JUCE_CPPFLAGS_VST) $(JUCE_CFLAGS_VST) -o "$@" -c "$<"
+
+$(JUCE_OBJDIR)/include_juce_audio_plugin_client_Standalone_c6ff8483.o: ../../../JuceLibraryCode/include_juce_audio_plugin_client_Standalone.cpp
+	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
+	@echo "Compiling include_juce_audio_plugin_client_Standalone.cpp"
+	$(V_AT)$(CXX) $(JUCE_CXXFLAGS) $(JUCE_CPPFLAGS_STANDALONE_PLUGIN) $(JUCE_CFLAGS_STANDALONE_PLUGIN) -o "$@" -c "$<"
 
 $(JUCE_OBJDIR)/alias_3b4a33b.o: ../../../mopo/src/alias.cpp
 	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
@@ -682,6 +708,16 @@ $(JUCE_OBJDIR)/full_interface_29b5f507.o: ../../../src/editor_sections/full_inte
 	@echo "Compiling full_interface.cpp"
 	$(V_AT)$(CXX) $(JUCE_CXXFLAGS) $(JUCE_CPPFLAGS_SHARED_CODE) $(JUCE_CFLAGS_SHARED_CODE) -o "$@" -c "$<"
 
+$(JUCE_OBJDIR)/input_section_ef83a5bc.o: ../../../src/editor_sections/input_section.cpp
+	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
+	@echo "Compiling input_section.cpp"
+	$(V_AT)$(CXX) $(JUCE_CXXFLAGS) $(JUCE_CPPFLAGS_SHARED_CODE) $(JUCE_CFLAGS_SHARED_CODE) -o "$@" -c "$<"
+
+$(JUCE_OBJDIR)/input_volume_section_a9e94c93.o: ../../../src/editor_sections/input_volume_section.cpp
+	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
+	@echo "Compiling input_volume_section.cpp"
+	$(V_AT)$(CXX) $(JUCE_CXXFLAGS) $(JUCE_CPPFLAGS_SHARED_CODE) $(JUCE_CFLAGS_SHARED_CODE) -o "$@" -c "$<"
+
 $(JUCE_OBJDIR)/lfo_section_f85fa167.o: ../../../src/editor_sections/lfo_section.cpp
 	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling lfo_section.cpp"
@@ -971,4 +1007,5 @@ strip:
 	-$(V_AT)$(STRIP) --strip-unneeded $(JUCE_OUTDIR)/$(TARGET)
 
 -include $(OBJECTS_VST:%.o=%.d)
+-include $(OBJECTS_STANDALONE_PLUGIN:%.o=%.d)
 -include $(OBJECTS_SHARED_CODE:%.o=%.d)

@@ -666,6 +666,12 @@
     <ClCompile Include="..\..\src\editor_sections\full_interface.cpp">
       <Filter>Helm\src\editor_sections</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\src\editor_sections\input_section.cpp">
+      <Filter>Helm\src\editor_sections</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\editor_sections\input_volume_section.cpp">
+      <Filter>Helm\src\editor_sections</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\src\editor_sections\lfo_section.cpp">
       <Filter>Helm\src\editor_sections</Filter>
     </ClCompile>
@@ -2811,6 +2817,12 @@
       <Filter>Helm\src\editor_sections</Filter>
     </ClInclude>
     <ClInclude Include="..\..\src\editor_sections\full_interface.h">
+      <Filter>Helm\src\editor_sections</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\editor_sections\input_section.h">
+      <Filter>Helm\src\editor_sections</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\editor_sections\input_volume_section.h">
       <Filter>Helm\src\editor_sections</Filter>
     </ClInclude>
     <ClInclude Include="..\..\src\editor_sections\lfo_section.h">

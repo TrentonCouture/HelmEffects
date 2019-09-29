@@ -31,7 +31,9 @@
 #include "formant_section.h"
 #include "lfo_section.h"
 #include "mixer_section.h"
+#include "input_volume_section.h"
 #include "oscillator_section.h"
+#include "input_section.h"
 #include "reverb_section.h"
 #include "sub_section.h"
 #include "step_sequencer_section.h"
@@ -69,8 +71,10 @@ class SynthesisInterface  : public SynthSection {
     ScopedPointer<LfoSection> mono_lfo_1_section_;
     ScopedPointer<LfoSection> mono_lfo_2_section_;
     ScopedPointer<MidiKeyboardComponent> keyboard_;
-    ScopedPointer<MixerSection> mixer_section_;
-    ScopedPointer<OscillatorSection> oscillator_section_;
+    //ScopedPointer<MixerSection> mixer_section_;
+	ScopedPointer<InputVolumeSection> input_volume_section_;
+    //ScopedPointer<OscillatorSection> oscillator_section_;
+	ScopedPointer<InputSection> input_section_;
     ScopedPointer<LfoSection> poly_lfo_section_;
     ScopedPointer<ReverbSection> reverb_section_;
     ScopedPointer<DistortionSection> distortion_section_;

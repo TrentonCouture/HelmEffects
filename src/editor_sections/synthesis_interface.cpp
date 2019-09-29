@@ -44,8 +44,10 @@ SynthesisInterface::SynthesisInterface(
   keyboard_->setWantsKeyboardFocus(false);
   keyboard_->setMouseClickGrabsKeyboardFocus(false);
 
-  addSubSection(mixer_section_ = new MixerSection("MIXER"));
+  //addSubSection(mixer_section_ = new MixerSection("MIXER"));
+  addSubSection(input_volume_section_ = new InputVolumeSection("INPUT VOLUME"));
   //addSubSection(oscillator_section_ = new OscillatorSection("OSCILLATORS"));
+  addSubSection(input_section_ = new InputSection("INPUT"));
   addSubSection(poly_lfo_section_ = new LfoSection("POLY LFO", "poly_lfo", false));
   addSubSection(reverb_section_ = new ReverbSection("REVERB"));
   addSubSection(distortion_section_ = new DistortionSection("DISTORTION"));
@@ -81,8 +83,10 @@ SynthesisInterface::~SynthesisInterface() {
   keyboard_ = nullptr;
   mono_lfo_1_section_ = nullptr;
   mono_lfo_2_section_ = nullptr;
-  mixer_section_ = nullptr;
-  oscillator_section_ = nullptr;
+  //mixer_section_ = nullptr;
+  input_volume_section_ = nullptr;
+  //oscillator_section_ = nullptr;
+  input_section_ = nullptr;
   poly_lfo_section_ = nullptr;
   reverb_section_ = nullptr;
   step_sequencer_section_ = nullptr;
@@ -108,8 +112,10 @@ void SynthesisInterface::paintBackground(Graphics& g) {
   section_shadow.drawForRectangle(g, keyboard_->getBounds());
   section_shadow.drawForRectangle(g, mono_lfo_1_section_->getBounds());
   section_shadow.drawForRectangle(g, mono_lfo_2_section_->getBounds());
-  section_shadow.drawForRectangle(g, mixer_section_->getBounds());
-  section_shadow.drawForRectangle(g, oscillator_section_->getBounds());
+  //section_shadow.drawForRectangle(g, mixer_section_->getBounds());
+  section_shadow.drawForRectangle(g, input_volume_section_->getBounds());
+  //section_shadow.drawForRectangle(g, oscillator_section_->getBounds());
+  section_shadow.drawForRectangle(g, input_section_->getBounds());
   section_shadow.drawForRectangle(g, poly_lfo_section_->getBounds());
   section_shadow.drawForRectangle(g, reverb_section_->getBounds());
   section_shadow.drawForRectangle(g, step_sequencer_section_->getBounds());
@@ -146,10 +152,15 @@ void SynthesisInterface::resized() {
   int reverb_height = size_ratio_ * 91.0f;
   int distortion_height = audio_height - delay_height - reverb_height - 2.0f * padding_;
 
-  oscillator_section_->setBounds(column_1_x, padding_, section_one_width_, oscillators_height);
-  sub_section_->setBounds(column_1_x, oscillator_section_->getBottom() + padding_,
+  //oscillator_section_->setBounds(column_1_x, padding_, section_one_width_, oscillators_height);
+  input_section_->setBounds(column_1_x, padding_, section_one_width_, oscillators_height);
+  //sub_section_->setBounds(column_1_x, oscillator_section_->getBottom() + padding_,
+  //                        sub_width, sub_mixer_height);
+  sub_section_->setBounds(column_1_x, input_section_->getBottom() + padding_,
                           sub_width, sub_mixer_height);
-  mixer_section_->setBounds(sub_section_->getRight() + padding_, sub_section_->getY(),
+  //mixer_section_->setBounds(sub_section_->getRight() + padding_, sub_section_->getY(),
+  //                          mixer_width, sub_mixer_height);
+  input_volume_section_->setBounds(sub_section_->getRight() + padding_, sub_section_->getY(),
                             mixer_width, sub_mixer_height);
   amplitude_envelope_section_->setBounds(column_1_x, sub_section_->getBottom() + padding_,
                                          section_one_width_, envelopes_height);
