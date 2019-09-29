@@ -349,9 +349,6 @@ namespace mopo {
     osc_feedback_amount_audio->plug(osc_feedback_amount_clamped, LinearSmoothBuffer::kValue);
     osc_feedback_amount_audio->plug(reset, LinearSmoothBuffer::kTrigger);
 
-    //audio_input_->plug(oscillator_sum, 0);
-    //audio_input_->plug(noise_oscillator, 1);
-
 	audio_input_ = new AudioInput();
 	audio_input_->plug(oscillator_noise_sum, 0);
 	addProcessor(audio_input_);

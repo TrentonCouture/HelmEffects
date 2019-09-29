@@ -174,8 +174,6 @@ void HelmPlugin::releaseResources() {
 }
 
 void HelmPlugin::processBlock(AudioSampleBuffer& buffer, MidiBuffer& midi_messages) {
-  //input_buffer_ = &buffer;
-  //input_buffer_->copyFrom(buffer); //I think if you just reassign the pointer, then all the AudioInputs' pointers will still point to the old location. should copy samples in
   int total_samples = buffer.getNumSamples();
   int num_channels = getTotalNumOutputChannels();
 
@@ -184,12 +182,11 @@ void HelmPlugin::processBlock(AudioSampleBuffer& buffer, MidiBuffer& midi_messag
   	auto* channelData = buffer.getWritePointer(channel);
   	for (int i = 0; i < buffer.getNumSamples(); i++)
   		channelData[i] = ((i % 100) / (float)200);
-  	//filters[channel].processSamples(channelData, buffer.getNumSamples());
   }
 
   audio_input_.copyBuffer(buffer);
 
-  //getPlayHead()->getCurrentPosition(position_info_);
+  //getPlayHead()->getCurrentPosition(position_info_); //commented out so I can run a standalone
   if (position_info_.bpm)
     engine_.setBpm(position_info_.bpm);
 

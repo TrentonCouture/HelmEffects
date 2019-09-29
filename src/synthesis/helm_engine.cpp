@@ -60,12 +60,6 @@ namespace mopo {
     voice_handler_->setPolyphony(32);
     voice_handler_->plug(polyphony, VoiceHandler::kPolyphony);
 
-	/*
-	AudioInput* audioInput = new AudioInput();
-	addProcessor(audioInput);
-	*/
-
-
     // Monophonic LFO 1.
     lfo_1_retrigger_ = createBaseControl("mono_lfo_1_retrigger");
     TriggerEquals* lfo_1_reset = new TriggerEquals(1.0);
