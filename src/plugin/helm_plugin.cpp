@@ -177,16 +177,18 @@ void HelmPlugin::processBlock(AudioSampleBuffer& buffer, MidiBuffer& midi_messag
   int total_samples = buffer.getNumSamples();
   int num_channels = getTotalNumOutputChannels();
 
+  /*
   for (int channel = 0; channel < num_channels; ++channel)
   {
   	auto* channelData = buffer.getWritePointer(channel);
   	for (int i = 0; i < buffer.getNumSamples(); i++)
   		channelData[i] = ((i % 100) / (float)200);
   }
+  */
 
   audio_input_.copyBuffer(buffer);
 
-  //getPlayHead()->getCurrentPosition(position_info_); //commented out so I can run a standalone
+  getPlayHead()->getCurrentPosition(position_info_); //commented out so I can run a standalone
   if (position_info_.bpm)
     engine_.setBpm(position_info_.bpm);
 

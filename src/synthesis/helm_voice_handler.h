@@ -22,6 +22,7 @@
 #include "helm_common.h"
 #include "helm_module.h"
 #include "audio_input.h"
+#include "input_volume.h"
 
 #include "JuceHeader.h"
 
@@ -84,7 +85,7 @@ namespace mopo {
       void setupPolyModulationReadouts();
 
 	  AudioInput* audio_input_;
-	  //std::shared_ptr<AudioInput> audio_input_;
+	  InputVolume* input_volume_;
 
       Output* beats_per_second_;
 

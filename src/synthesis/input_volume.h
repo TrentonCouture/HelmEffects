@@ -1,32 +1,31 @@
 /*
   ==============================================================================
 
-    audio_input.h
-    Created: 2 Sep 2019 2:17:10pm
+    input_volume.h
+    Created: 29 Sep 2019 10:08:44pm
     Author:  Trenton
 
   ==============================================================================
 */
 
-#include "input_processor.h"
-#include "JuceHeader.h"
-
 #pragma once
+#include "input_processor.h"
+#include "running_average.h"
 
 namespace mopo {
-
-  class AudioInput : public InputProcessor {
+  class InputVolume : public InputProcessor {
   public:
-
-	AudioInput();
-    virtual ~AudioInput() { }
+	InputVolume();
+	virtual ~InputVolume() {}
 
 	virtual void destroy() override;
 
     virtual Processor* clone() const override {
-		return new AudioInput(*this);
+		return new InputVolume(*this);
     }
 
     void process() override;
+  private:
+	  RunningAverage volumeChecker;
   };
 }

@@ -488,6 +488,9 @@
               file="src/synthesis/input_processor.cpp"/>
         <FILE id="yDKq38" name="input_processor.h" compile="0" resource="0"
               file="src/synthesis/input_processor.h"/>
+        <FILE id="EOTf63" name="input_volume.cpp" compile="1" resource="0"
+              file="src/synthesis/input_volume.cpp"/>
+        <FILE id="ATCgXN" name="input_volume.h" compile="0" resource="0" file="src/synthesis/input_volume.h"/>
         <FILE id="FPX4kz" name="noise_oscillator.cpp" compile="1" resource="0"
               file="src/synthesis/noise_oscillator.cpp"/>
         <FILE id="ZraUKZ" name="noise_oscillator.h" compile="0" resource="0"
@@ -498,6 +501,10 @@
               file="src/synthesis/resonance_cancel.cpp"/>
         <FILE id="cgVNbe" name="resonance_cancel.h" compile="0" resource="0"
               file="src/synthesis/resonance_cancel.h"/>
+        <FILE id="WDqbqU" name="running_average.cpp" compile="1" resource="0"
+              file="src/synthesis/running_average.cpp"/>
+        <FILE id="e2KPle" name="running_average.h" compile="0" resource="0"
+              file="src/synthesis/running_average.h"/>
         <FILE id="cCMAyC" name="trigger_random.cpp" compile="1" resource="0"
               file="src/synthesis/trigger_random.cpp"/>
         <FILE id="A4S4Xw" name="trigger_random.h" compile="0" resource="0"

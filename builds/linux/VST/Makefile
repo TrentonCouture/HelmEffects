@@ -218,9 +218,11 @@ OBJECTS_SHARED_CODE := \
   $(JUCE_OBJDIR)/helm_oscillators_bb02f03c.o \
   $(JUCE_OBJDIR)/helm_voice_handler_35395fa6.o \
   $(JUCE_OBJDIR)/input_processor_acf6e1bd.o \
+  $(JUCE_OBJDIR)/input_volume_c35c1519.o \
   $(JUCE_OBJDIR)/noise_oscillator_93de254f.o \
   $(JUCE_OBJDIR)/peak_meter_cadcb853.o \
   $(JUCE_OBJDIR)/resonance_cancel_67415ef5.o \
+  $(JUCE_OBJDIR)/running_average_b4e9c2fd.o \
   $(JUCE_OBJDIR)/trigger_random_750c5e54.o \
   $(JUCE_OBJDIR)/value_switch_f497502c.o \
   $(JUCE_OBJDIR)/audio_input_test_281e99f4.o \
@@ -904,6 +906,11 @@ $(JUCE_OBJDIR)/input_processor_acf6e1bd.o: ../../../src/synthesis/input_processo
 	@echo "Compiling input_processor.cpp"
 	$(V_AT)$(CXX) $(JUCE_CXXFLAGS) $(JUCE_CPPFLAGS_SHARED_CODE) $(JUCE_CFLAGS_SHARED_CODE) -o "$@" -c "$<"
 
+$(JUCE_OBJDIR)/input_volume_c35c1519.o: ../../../src/synthesis/input_volume.cpp
+	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
+	@echo "Compiling input_volume.cpp"
+	$(V_AT)$(CXX) $(JUCE_CXXFLAGS) $(JUCE_CPPFLAGS_SHARED_CODE) $(JUCE_CFLAGS_SHARED_CODE) -o "$@" -c "$<"
+
 $(JUCE_OBJDIR)/noise_oscillator_93de254f.o: ../../../src/synthesis/noise_oscillator.cpp
 	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling noise_oscillator.cpp"
@@ -917,6 +924,11 @@ $(JUCE_OBJDIR)/peak_meter_cadcb853.o: ../../../src/synthesis/peak_meter.cpp
 $(JUCE_OBJDIR)/resonance_cancel_67415ef5.o: ../../../src/synthesis/resonance_cancel.cpp
 	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling resonance_cancel.cpp"
+	$(V_AT)$(CXX) $(JUCE_CXXFLAGS) $(JUCE_CPPFLAGS_SHARED_CODE) $(JUCE_CFLAGS_SHARED_CODE) -o "$@" -c "$<"
+
+$(JUCE_OBJDIR)/running_average_b4e9c2fd.o: ../../../src/synthesis/running_average.cpp
+	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
+	@echo "Compiling running_average.cpp"
 	$(V_AT)$(CXX) $(JUCE_CXXFLAGS) $(JUCE_CPPFLAGS_SHARED_CODE) $(JUCE_CFLAGS_SHARED_CODE) -o "$@" -c "$<"
 
 $(JUCE_OBJDIR)/trigger_random_750c5e54.o: ../../../src/synthesis/trigger_random.cpp

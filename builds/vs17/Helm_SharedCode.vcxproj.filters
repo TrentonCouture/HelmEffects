@@ -783,6 +783,9 @@
     <ClCompile Include="..\..\src\synthesis\input_processor.cpp">
       <Filter>Helm\src\synthesis</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\src\synthesis\input_volume.cpp">
+      <Filter>Helm\src\synthesis</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\src\synthesis\noise_oscillator.cpp">
       <Filter>Helm\src\synthesis</Filter>
     </ClCompile>
@@ -790,6 +793,9 @@
       <Filter>Helm\src\synthesis</Filter>
     </ClCompile>
     <ClCompile Include="..\..\src\synthesis\resonance_cancel.cpp">
+      <Filter>Helm\src\synthesis</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\synthesis\running_average.cpp">
       <Filter>Helm\src\synthesis</Filter>
     </ClCompile>
     <ClCompile Include="..\..\src\synthesis\trigger_random.cpp">
@@ -2942,6 +2948,9 @@
     <ClInclude Include="..\..\src\synthesis\input_processor.h">
       <Filter>Helm\src\synthesis</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\src\synthesis\input_volume.h">
+      <Filter>Helm\src\synthesis</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\src\synthesis\noise_oscillator.h">
       <Filter>Helm\src\synthesis</Filter>
     </ClInclude>
@@ -2949,6 +2958,9 @@
       <Filter>Helm\src\synthesis</Filter>
     </ClInclude>
     <ClInclude Include="..\..\src\synthesis\resonance_cancel.h">
+      <Filter>Helm\src\synthesis</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\synthesis\running_average.h">
       <Filter>Helm\src\synthesis</Filter>
     </ClInclude>
     <ClInclude Include="..\..\src\synthesis\trigger_random.h">
