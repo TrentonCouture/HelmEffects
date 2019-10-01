@@ -381,7 +381,11 @@ namespace mopo {
     scaled_lfo->plug(poly_lfo_, 0);
     scaled_lfo->plug(lfo_free_amplitude, 1);
 
+	Output* volume_sensitivity_ = createPolyModControl("input_volume_sensitivity", true);
+
 	input_volume_ = new InputVolume();
+	input_volume_->plug(volume_sensitivity_, InputVolume::kSensitivity);
+
 	addProcessor(input_volume_);
 
     addProcessor(poly_lfo_);

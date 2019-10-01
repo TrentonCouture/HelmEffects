@@ -161,6 +161,8 @@ namespace mopo {
       ValueDetails::kQuadratic, false, "", "Osc 2 Volume" },
     { "osc_2_waveform", 0.0, 10.0, 11, 4.0, 0.0, 1.0,
       ValueDetails::kLinear, false, "", "Osc 2 Waveform" },
+	{ "input_volume_sensitivity", 0.0, 20.0, 0, 0.0, 0.0, 100.0,
+      ValueDetails::kLinear, false, "", "Input Volume Sensitivity" },
     { "osc_feedback_amount", -1.0, 1.0, 0, 0.0, 0.0, 100.0,
       ValueDetails::kLinear, false, "%", "Osc Feedback Amount" },
     { "osc_feedback_transpose", -24.0, 24.0, 49, 0.0, 0.0, 1.0,

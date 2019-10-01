@@ -15,6 +15,12 @@
 namespace mopo {
   class InputVolume : public InputProcessor {
   public:
+
+    enum Inputs {
+      kSensitivity,
+      kNumInputs
+    };
+
 	InputVolume();
 	virtual ~InputVolume() {}
 

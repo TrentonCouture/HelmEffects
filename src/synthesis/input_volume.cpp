@@ -19,7 +19,8 @@ namespace mopo {
   }
 
 	void InputVolume::process() {
-		output()->buffer[0] = 10 * (mopo_float)volumeChecker.getRunningAverage(input_buffer_);
+		//output()->buffer[0] = 10 * (mopo_float)volumeChecker.getRunningAverage(input_buffer_);
+		output()->buffer[0] = input(kSensitivity)->source->buffer[0] * (mopo_float)volumeChecker.getRunningAverage(input_buffer_);
     }
 }
    

@@ -28,9 +28,9 @@ HelmPlugin::HelmPlugin()
 	: AudioProcessor(BusesProperties()
 #if ! JucePlugin_IsMidiEffect
 #if ! JucePlugin_IsSynth
-		.withInput("Input", AudioChannelSet::stereo(), true)
+		.withInput("Input", AudioChannelSet::mono(), true)
 #endif
-		.withOutput("Output", AudioChannelSet::stereo(), true)
+		.withOutput("Output", AudioChannelSet::mono(), true)
 #endif
 	)
 #endif
@@ -187,6 +187,8 @@ void HelmPlugin::processBlock(AudioSampleBuffer& buffer, MidiBuffer& midi_messag
   */
 
   audio_input_.copyBuffer(buffer);
+
+  buffer.clear();
 
   getPlayHead()->getCurrentPosition(position_info_); //commented out so I can run a standalone
   if (position_info_.bpm)
