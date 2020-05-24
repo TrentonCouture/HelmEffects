@@ -25,9 +25,9 @@
     <key>CFBundleIdentifier</key>
     <string>org.tytel.helmplugin</string>
     <key>CFBundleName</key>
-    <string>Helm</string>
+    <string>HelmFX</string>
     <key>CFBundleDisplayName</key>
-    <string>Helm</string>
+    <string>HelmFX</string>
     <key>CFBundlePackageType</key>
     <string>APPL</string>
     <key>CFBundleSignature</key>

@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<JUCERPROJECT id="C9WuMW" name="Helm" projectType="audioplug" version="0.9.0"
+<JUCERPROJECT id="C9WuMW" name="HelmFX" projectType="audioplug" version="0.9.0"
               bundleIdentifier="org.tytel.helmplugin" includeBinaryInAppConfig="1"
               buildVST="1" buildVST3="1" buildAU="1" buildRTAS="0" buildAAX="0"
               pluginName="Helm" pluginDesc="" pluginManufacturer="Matt Tytel"
               pluginManufacturerCode="Tyte" pluginCode="Helm" pluginIsSynth="0"
               pluginWantsMidiIn="1" pluginProducesMidiOut="0" pluginSilenceInIsSilenceOut="0"
               pluginEditorRequiresKeys="1" pluginAUExportPrefix="helm" pluginRTASCategory=""
-              aaxIdentifier="org.tytel.helm" pluginAAXCategory="2048" jucerVersion="5.4.4"
+              aaxIdentifier="org.tytel.helm" pluginAAXCategory="2048" jucerVersion="5.4.7"
               companyName="Matt Tytel" companyEmail="matthewtytel@gmail.com"
               companyWebsite="tytel.org" pluginIsMidiEffectPlugin="0" buildAUv3="0"
               displaySplashScreen="1" reportAppUsage="1" splashScreenColour="Dark"
@@ -15,7 +15,7 @@
               pluginCharacteristicsValue="pluginWantsMidiIn,pluginEditorRequiresKeys"
               pluginRTASDisableBypass="0" pluginRTASDisableMultiMono="0" pluginAAXDisableBypass="0"
               pluginAAXDisableMultiMono="0" pluginVST3Category="Fx" headerPath="C:\ASIOSDK2.3\common">
-  <MAINGROUP id="OwcEM5" name="Helm">
+  <MAINGROUP id="OwcEM5" name="HelmFX">
     <GROUP id="{600DADF0-4925-DDC4-81CF-48B3BAC03E18}" name="concurrentqueue">
       <FILE id="eNsxUt" name="blockingconcurrentqueue.h" compile="0" resource="0"
             file="concurrentqueue/blockingconcurrentqueue.h"/>
@@ -608,27 +608,6 @@
         <MODULEPATH id="juce_audio_basics" path="JUCE/modules"/>
       </MODULEPATHS>
     </VS2017>
-    <VS2019 targetFolder="Builds/VisualStudio2019">
-      <CONFIGURATIONS>
-        <CONFIGURATION isDebug="1" name="Debug"/>
-        <CONFIGURATION isDebug="0" name="Release"/>
-      </CONFIGURATIONS>
-      <MODULEPATHS>
-        <MODULEPATH id="juce_opengl"/>
-        <MODULEPATH id="juce_gui_extra"/>
-        <MODULEPATH id="juce_gui_basics"/>
-        <MODULEPATH id="juce_graphics"/>
-        <MODULEPATH id="juce_events"/>
-        <MODULEPATH id="juce_data_structures"/>
-        <MODULEPATH id="juce_core"/>
-        <MODULEPATH id="juce_audio_utils"/>
-        <MODULEPATH id="juce_audio_processors"/>
-        <MODULEPATH id="juce_audio_plugin_client"/>
-        <MODULEPATH id="juce_audio_formats"/>
-        <MODULEPATH id="juce_audio_devices"/>
-        <MODULEPATH id="juce_audio_basics"/>
-      </MODULEPATHS>
-    </VS2019>
   </EXPORTFORMATS>
   <MODULES>
     <MODULES id="juce_audio_basics" showAllCode="1" useLocalCopy="0"/>

@@ -186,9 +186,11 @@ void HelmPlugin::processBlock(AudioSampleBuffer& buffer, MidiBuffer& midi_messag
   }
   */
 
-  audio_input_.copyBuffer(buffer);
+  //MidiMessage midi_message = MidiMessage::noteOn(0, 64, (float)64.0);
+  //midi_messages.addEvent(midi_message, 1);
 
-  buffer.clear();
+
+  //buffer.clear();
 
   getPlayHead()->getCurrentPosition(position_info_); //commented out so I can run a standalone
   if (position_info_.bpm)
@@ -206,9 +208,12 @@ void HelmPlugin::processBlock(AudioSampleBuffer& buffer, MidiBuffer& midi_messag
   for (int sample_offset = 0; sample_offset < total_samples;) {
     int num_samples = std::min<int>(total_samples - sample_offset, MAX_BUFFER_PROCESS);
 
+	audio_input_.copyBuffer(buffer, num_samples, sample_offset);
     processMidi(midi_messages, sample_offset, sample_offset + num_samples);
     processAudio(&buffer, num_channels, num_samples, sample_offset);
 
+
+  //engine_.grabBuffer(buffer);
     sample_offset += num_samples;
   }
 }

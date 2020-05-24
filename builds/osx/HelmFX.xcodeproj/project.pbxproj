@@ -3616,7 +3616,7 @@
 				033892D93A1DFF24698FF130,
 				D5AC020EED5047AB99A51BAD,
 			);
-			name = Helm;
+			name = HelmFX;
 			sourceTree = "<group>";
 		};
 		BA73E1EC42742BF700C44C2F = {
@@ -4515,8 +4515,8 @@
 				8E222F70EBB67525D548A93C,
 				5904F373F5F7BD0C3893A795,
 			);
-			name = "Helm - All";
-			productName = Helm;
+			name = "HelmFX - All";
+			productName = HelmFX;
 		};
 		75A6E8C066609FD80E69D3F8 = {
 			isa = XCConfigurationList;
@@ -4574,8 +4574,8 @@
 			dependencies = (
 				5904F373F5F7BD0C3893A795,
 			);
-			name = "Helm - VST";
-			productName = Helm;
+			name = "HelmFX - VST";
+			productName = HelmFX;
 			productReference = 5684D867B375509C886F7B06;
 			productType = "com.apple.product-type.bundle";
 		};
@@ -4635,8 +4635,8 @@
 			dependencies = (
 				5904F373F5F7BD0C3893A795,
 			);
-			name = "Helm - VST3";
-			productName = Helm;
+			name = "HelmFX - VST3";
+			productName = HelmFX;
 			productReference = E23701A8A5F0ABAFA2C3CC9A;
 			productType = "com.apple.product-type.bundle";
 		};
@@ -4708,8 +4708,8 @@
 			dependencies = (
 				5904F373F5F7BD0C3893A795,
 			);
-			name = "Helm - AU";
-			productName = Helm;
+			name = "HelmFX - AU";
+			productName = HelmFX;
 			productReference = 2801D896A423C24FB939EBE6;
 			productType = "com.apple.product-type.bundle";
 		};
@@ -4769,8 +4769,8 @@
 			dependencies = (
 				5904F373F5F7BD0C3893A795,
 			);
-			name = "Helm - Standalone Plugin";
-			productName = Helm;
+			name = "HelmFX - Standalone Plugin";
+			productName = HelmFX;
 			productReference = 772D63BB6D32DE44B4D47CA2;
 			productType = "com.apple.product-type.application";
 		};
@@ -4945,8 +4945,8 @@
 			);
 			buildRules = ( );
 			dependencies = ( );
-			name = "Helm - Shared Code";
-			productName = Helm;
+			name = "HelmFX - Shared Code";
+			productName = HelmFX;
 			productReference = C067F5E592D8433D02092111;
 			productType = "com.apple.product-type.library.static";
 		};

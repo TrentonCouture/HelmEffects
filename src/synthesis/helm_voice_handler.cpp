@@ -390,8 +390,8 @@ namespace mopo {
 
     addProcessor(poly_lfo_);
     addProcessor(scaled_lfo);
-	mod_sources_["input_volume"] = input_volume_->output();
-	//mod_sources_["input_volume"] = scaled_lfo->output();
+	mod_sources_["input_volume"] = input_volume_->output(); // uncomment this
+	//mod_sources_["input_volume"] = scaled_lfo->output(); //leave this commented
     mod_sources_["poly_lfo"] = scaled_lfo->output();
     mod_sources_["poly_lfo_amp"] = registerOutput(scaled_lfo->output());
     mod_sources_["poly_lfo_phase"] = registerOutput(poly_lfo_->output(Oscillator::kPhase));

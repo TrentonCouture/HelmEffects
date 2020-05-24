@@ -20,7 +20,7 @@ namespace mopo {
 
 	void AudioInput::process() {
 		const float* source = input_buffer_.getReadPointer(0);
-		for (int i = 0; i < 256; ++i) {
+		for (int i = 0; i < input_buffer_.getNumSamples(); ++i) {
 		  output()->buffer[i] = (mopo_float)source[i];
 		}
     }

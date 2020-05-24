@@ -225,8 +225,6 @@ void SynthBase::processAudio(AudioSampleBuffer* buffer, int channels, int sample
   if (engine_.getBufferSize() != samples)
     engine_.setBufferSize(samples);
 
-  //engine_.grabBuffer(buffer);
-
   engine_.process();
 
   const mopo::mopo_float* engine_output_left = engine_.output(0)->buffer;
