@@ -53,7 +53,8 @@ SynthesisInterface::SynthesisInterface(
   addSubSection(distortion_section_ = new DistortionSection("DISTORTION"));
   addSubSection(step_sequencer_section_ = new StepSequencerSection("STEP SEQUENCER"));
   addSubSection(stutter_section_ = new StutterSection("STUTTER"));
-  addSubSection(sub_section_ = new SubSection("SUB"));
+  //addSubSection(sub_section_ = new SubSection("SUB"));
+  addSubSection(env_trigger_section_ = new EnvTriggerSection("ENVELOPE TRIGGER"));
   addSubSection(voice_section_ = new VoiceSection("VOICE"));
 
   keyboard_->setColour(MidiKeyboardComponent::whiteNoteColourId, Colour(0xff444444));
@@ -91,7 +92,8 @@ SynthesisInterface::~SynthesisInterface() {
   reverb_section_ = nullptr;
   step_sequencer_section_ = nullptr;
   stutter_section_ = nullptr;
-  sub_section_ = nullptr;
+  //sub_section_ = nullptr;
+  env_trigger_section_ = nullptr;
   voice_section_ = nullptr;
 }
 
@@ -120,7 +122,8 @@ void SynthesisInterface::paintBackground(Graphics& g) {
   section_shadow.drawForRectangle(g, reverb_section_->getBounds());
   section_shadow.drawForRectangle(g, step_sequencer_section_->getBounds());
   section_shadow.drawForRectangle(g, stutter_section_->getBounds());
-  section_shadow.drawForRectangle(g, sub_section_->getBounds());
+  //section_shadow.drawForRectangle(g, sub_section_->getBounds());
+  section_shadow.drawForRectangle(g, env_trigger_section_->getBounds());
   section_shadow.drawForRectangle(g, voice_section_->getBounds());
 
   paintChildrenBackgrounds(g);
@@ -156,13 +159,13 @@ void SynthesisInterface::resized() {
   input_section_->setBounds(column_1_x, padding_, section_one_width_, oscillators_height);
   //sub_section_->setBounds(column_1_x, oscillator_section_->getBottom() + padding_,
   //                        sub_width, sub_mixer_height);
-  sub_section_->setBounds(column_1_x, input_section_->getBottom() + padding_,
+  env_trigger_section_->setBounds(column_1_x, input_section_->getBottom() + padding_,
                           sub_width, sub_mixer_height);
   //mixer_section_->setBounds(sub_section_->getRight() + padding_, sub_section_->getY(),
   //                          mixer_width, sub_mixer_height);
-  input_volume_section_->setBounds(sub_section_->getRight() + padding_, sub_section_->getY(),
+  input_volume_section_->setBounds(env_trigger_section_->getRight() + padding_, env_trigger_section_->getY(),
                             mixer_width, sub_mixer_height);
-  amplitude_envelope_section_->setBounds(column_1_x, sub_section_->getBottom() + padding_,
+  amplitude_envelope_section_->setBounds(column_1_x, env_trigger_section_->getBottom() + padding_,
                                          section_one_width_, envelopes_height);
 
   feedback_section_->setBounds(column_2_x, padding_, section_two_width_, feedback_height);

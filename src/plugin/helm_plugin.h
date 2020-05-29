@@ -74,6 +74,8 @@ class HelmPlugin : public SynthBase, public AudioProcessor, public ValueBridge::
   private:
 	mopo::AudioInput audio_input_;
 
+	bool first_run_;
+
     uint32 set_state_time_;
 
     int current_program_;

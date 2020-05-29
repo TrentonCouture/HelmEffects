@@ -261,6 +261,10 @@
 			isa = PBXBuildFile;
 			fileRef = 9BB723DFA4C3C84214B48C1B;
 		};
+		C765947B6C5D9BC957AA9FF8 = {
+			isa = PBXBuildFile;
+			fileRef = 91620D47B4CCDF4C08988F0C;
+		};
 		2B77C84009DB342F77988545 = {
 			isa = PBXBuildFile;
 			fileRef = B6E385509BFCDE99AF898E20;
@@ -404,6 +408,10 @@
 		63A684997C45F2F99595D445 = {
 			isa = PBXBuildFile;
 			fileRef = 48DB14F39ED8ADD506CA9EEE;
+		};
+		73A4CBC69A71D70028AE6EE3 = {
+			isa = PBXBuildFile;
+			fileRef = F299FCDEC81CA1AB2E46EBEC;
 		};
 		5F2199B81EBFC69AF2C7BDEC = {
 			isa = PBXBuildFile;
@@ -1229,6 +1237,13 @@
 			path = "../../src/editor_sections/formant_section.cpp";
 			sourceTree = "SOURCE_ROOT";
 		};
+		3392DC95E174BB29E729F527 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.h;
+			name = "env_trigger_section.h";
+			path = "../../src/editor_sections/env_trigger_section.h";
+			sourceTree = "SOURCE_ROOT";
+		};
 		33DF254B14AA0732742A12C6 = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.cpp.cpp;
@@ -1908,6 +1923,13 @@
 			path = "../../audio_input_test.h";
 			sourceTree = "SOURCE_ROOT";
 		};
+		7E5322BF57DFCC4021113269 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.h;
+			name = "env_trigger_button.h";
+			path = "../../src/editor_components/env_trigger_button.h";
+			sourceTree = "SOURCE_ROOT";
+		};
 		7EBC592493B7B164256DE056 = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.c.h;
@@ -2083,20 +2105,6 @@
 			path = "../../src/editor_sections/distortion_section.h";
 			sourceTree = "SOURCE_ROOT";
 		};
-		9A132C40EBAC4A24E35955D8 = {
-			isa = PBXFileReference;
-			lastKnownFileType = sourcecode.cpp.objcpp;
-			name = "include_juce_audio_processors.mm";
-			path = "../../JuceLibraryCode/include_juce_audio_processors.mm";
-			sourceTree = "SOURCE_ROOT";
-		};
-		9BCCE08642C61A51063A3F73 = {
-			isa = PBXFileReference;
-			lastKnownFileType = file;
-			name = "juce_opengl";
-			path = "../../JUCE/modules/juce_opengl";
-			sourceTree = "SOURCE_ROOT";
-		};
 		CA6250DAF9A79608E32E3639 = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.c.h;
@@ -2174,6 +2182,13 @@
 			path = "../../JuceLibraryCode/include_juce_data_structures.mm";
 			sourceTree = "SOURCE_ROOT";
 		};
+		91620D47B4CCDF4C08988F0C = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.cpp.cpp;
+			name = "env_trigger_button.cpp";
+			path = "../../src/editor_components/env_trigger_button.cpp";
+			sourceTree = "SOURCE_ROOT";
+		};
 		95B83277172DA3FBE7180F21 = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.c.h;
@@ -2195,11 +2210,25 @@
 			path = "../../mopo/src/sample_decay_lookup.cpp";
 			sourceTree = "SOURCE_ROOT";
 		};
+		9A132C40EBAC4A24E35955D8 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.cpp.objcpp;
+			name = "include_juce_audio_processors.mm";
+			path = "../../JuceLibraryCode/include_juce_audio_processors.mm";
+			sourceTree = "SOURCE_ROOT";
+		};
 		9BB723DFA4C3C84214B48C1B = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.cpp.cpp;
 			name = "bpm_slider.cpp";
 			path = "../../src/editor_components/bpm_slider.cpp";
+			sourceTree = "SOURCE_ROOT";
+		};
+		9BCCE08642C61A51063A3F73 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			name = "juce_opengl";
+			path = "../../JUCE/modules/juce_opengl";
 			sourceTree = "SOURCE_ROOT";
 		};
 		9EE595F732D7F07E08410E43 = {
@@ -3091,6 +3120,13 @@
 			path = "../../src/editor_components/graphical_step_sequencer.h";
 			sourceTree = "SOURCE_ROOT";
 		};
+		F299FCDEC81CA1AB2E46EBEC = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.cpp.cpp;
+			name = "env_trigger_section.cpp";
+			path = "../../src/editor_sections/env_trigger_section.cpp";
+			sourceTree = "SOURCE_ROOT";
+		};
 		F2A321DC7532919CD45E7199 = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.c.h;
@@ -3376,6 +3412,8 @@
 			children = (
 				9BB723DFA4C3C84214B48C1B,
 				D05771C7CC18EA6F54BA943E,
+				91620D47B4CCDF4C08988F0C,
+				7E5322BF57DFCC4021113269,
 				B6E385509BFCDE99AF898E20,
 				75769ADA6F1ED28204E5FFAA,
 				2D66AC277DB1FC398F872C8D,
@@ -3456,6 +3494,8 @@
 				C522D93CB2A660F2ECCB70EC,
 				48DB14F39ED8ADD506CA9EEE,
 				36DD4CB1970F8A4B8A9E280D,
+				F299FCDEC81CA1AB2E46EBEC,
+				3392DC95E174BB29E729F527,
 				64149DEAAA3E157CB2715B85,
 				3A3D2458D9A94C2B2F27678D,
 				22D9C36BFE56EA60272C589C,
@@ -4831,6 +4871,7 @@
 				F53CF6D6E5D0EB40996201AE,
 				C576E417C806922ED4C32EDF,
 				8EEF5B4CD79564A5E25E1C4C,
+				C765947B6C5D9BC957AA9FF8,
 				2B77C84009DB342F77988545,
 				AE08CA665A846E1D7A7065E8,
 				B32E16CEA70D6793BB435539,
@@ -4867,6 +4908,7 @@
 				A2C12BC10CADCAD976638382,
 				2A0D8B00B6BBCE874727D9ED,
 				63A684997C45F2F99595D445,
+				73A4CBC69A71D70028AE6EE3,
 				5F2199B81EBFC69AF2C7BDEC,
 				2AD0D87A4DA08083B664ED29,
 				482BEE5993BD38E50CFDF788,
@@ -4953,7 +4995,7 @@
 		1274150799E95CB43F035F74 = {
 			isa = PBXProject;
 			buildConfigurationList = BE49DC8D2B264DCFD2D03E8A;
-			attributes = { LastUpgradeCheck = 1100; ORGANIZATIONNAME = "Matt Tytel"; TargetAttributes = { DDA3E4C82DD636A6B1B37767 = { DevelopmentTeam = EFXDM6K3KJ; ProvisioningStyle = Automatic; SystemCapabilities = {com.apple.ApplicationGroups.iOS = { enabled = 0; }; com.apple.InAppPurchase = { enabled = 0; }; com.apple.InterAppAudio = { enabled = 0; }; com.apple.Push = { enabled = 0; }; com.apple.Sandbox = { enabled = 0; }; com.apple.HardenedRuntime = { enabled = 0; }; }; };04C62C3EDEE68AB6BB542024 = { DevelopmentTeam = EFXDM6K3KJ; ProvisioningStyle = Automatic; SystemCapabilities = {com.apple.ApplicationGroups.iOS = { enabled = 0; }; com.apple.InAppPurchase = { enabled = 0; }; com.apple.InterAppAudio = { enabled = 0; }; com.apple.Push = { enabled = 0; }; com.apple.Sandbox = { enabled = 0; }; com.apple.HardenedRuntime = { enabled = 0; }; }; };650B07A70E4EC6685842D802 = { DevelopmentTeam = EFXDM6K3KJ; ProvisioningStyle = Automatic; SystemCapabilities = {com.apple.ApplicationGroups.iOS = { enabled = 0; }; com.apple.InAppPurchase = { enabled = 0; }; com.apple.InterAppAudio = { enabled = 0; }; com.apple.Push = { enabled = 0; }; com.apple.Sandbox = { enabled = 0; }; com.apple.HardenedRuntime = { enabled = 0; }; }; };C2D01B9344ECB5A5F8D03D03 = { DevelopmentTeam = EFXDM6K3KJ; ProvisioningStyle = Automatic; SystemCapabilities = {com.apple.ApplicationGroups.iOS = { enabled = 0; }; com.apple.InAppPurchase = { enabled = 0; }; com.apple.InterAppAudio = { enabled = 0; }; com.apple.Push = { enabled = 0; }; com.apple.Sandbox = { enabled = 0; }; com.apple.HardenedRuntime = { enabled = 0; }; }; };F9F0DA819689524463BB1AEE = { DevelopmentTeam = EFXDM6K3KJ; ProvisioningStyle = Automatic; SystemCapabilities = {com.apple.ApplicationGroups.iOS = { enabled = 0; }; com.apple.InAppPurchase = { enabled = 0; }; com.apple.InterAppAudio = { enabled = 0; }; com.apple.Push = { enabled = 0; }; com.apple.Sandbox = { enabled = 0; }; com.apple.HardenedRuntime = { enabled = 0; }; }; };995510783F0DBDE21AB02443 = { DevelopmentTeam = EFXDM6K3KJ; ProvisioningStyle = Automatic; SystemCapabilities = {com.apple.ApplicationGroups.iOS = { enabled = 0; }; com.apple.InAppPurchase = { enabled = 0; }; com.apple.InterAppAudio = { enabled = 0; }; com.apple.Push = { enabled = 0; }; com.apple.Sandbox = { enabled = 0; }; com.apple.HardenedRuntime = { enabled = 0; }; }; }; }; };
+			attributes = { LastUpgradeCheck = 1100; ORGANIZATIONNAME = ""; TargetAttributes = { DDA3E4C82DD636A6B1B37767 = { DevelopmentTeam = EFXDM6K3KJ; ProvisioningStyle = Automatic; SystemCapabilities = {com.apple.ApplicationGroups.iOS = { enabled = 0; }; com.apple.InAppPurchase = { enabled = 0; }; com.apple.InterAppAudio = { enabled = 0; }; com.apple.Push = { enabled = 0; }; com.apple.Sandbox = { enabled = 0; }; com.apple.HardenedRuntime = { enabled = 0; }; }; };04C62C3EDEE68AB6BB542024 = { DevelopmentTeam = EFXDM6K3KJ; ProvisioningStyle = Automatic; SystemCapabilities = {com.apple.ApplicationGroups.iOS = { enabled = 0; }; com.apple.InAppPurchase = { enabled = 0; }; com.apple.InterAppAudio = { enabled = 0; }; com.apple.Push = { enabled = 0; }; com.apple.Sandbox = { enabled = 0; }; com.apple.HardenedRuntime = { enabled = 0; }; }; };650B07A70E4EC6685842D802 = { DevelopmentTeam = EFXDM6K3KJ; ProvisioningStyle = Automatic; SystemCapabilities = {com.apple.ApplicationGroups.iOS = { enabled = 0; }; com.apple.InAppPurchase = { enabled = 0; }; com.apple.InterAppAudio = { enabled = 0; }; com.apple.Push = { enabled = 0; }; com.apple.Sandbox = { enabled = 0; }; com.apple.HardenedRuntime = { enabled = 0; }; }; };C2D01B9344ECB5A5F8D03D03 = { DevelopmentTeam = EFXDM6K3KJ; ProvisioningStyle = Automatic; SystemCapabilities = {com.apple.ApplicationGroups.iOS = { enabled = 0; }; com.apple.InAppPurchase = { enabled = 0; }; com.apple.InterAppAudio = { enabled = 0; }; com.apple.Push = { enabled = 0; }; com.apple.Sandbox = { enabled = 0; }; com.apple.HardenedRuntime = { enabled = 0; }; }; };F9F0DA819689524463BB1AEE = { DevelopmentTeam = EFXDM6K3KJ; ProvisioningStyle = Automatic; SystemCapabilities = {com.apple.ApplicationGroups.iOS = { enabled = 0; }; com.apple.InAppPurchase = { enabled = 0; }; com.apple.InterAppAudio = { enabled = 0; }; com.apple.Push = { enabled = 0; }; com.apple.Sandbox = { enabled = 0; }; com.apple.HardenedRuntime = { enabled = 0; }; }; };995510783F0DBDE21AB02443 = { DevelopmentTeam = EFXDM6K3KJ; ProvisioningStyle = Automatic; SystemCapabilities = {com.apple.ApplicationGroups.iOS = { enabled = 0; }; com.apple.InAppPurchase = { enabled = 0; }; com.apple.InterAppAudio = { enabled = 0; }; com.apple.Push = { enabled = 0; }; com.apple.Sandbox = { enabled = 0; }; com.apple.HardenedRuntime = { enabled = 0; }; }; }; }; };
 			compatibilityVersion = "Xcode 3.2";
 			hasScannedForEncodings = 0;
 			mainGroup = 98F1FCB5DC3DD869395E33CF;

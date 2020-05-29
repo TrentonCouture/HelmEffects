@@ -40,6 +40,7 @@
 #include "stutter_section.h"
 #include "voice_section.h"
 #include "volume_section.h"
+#include "env_trigger_section.h"
 
 #include "modulation_button.h"
 
@@ -80,7 +81,8 @@ class SynthesisInterface  : public SynthSection {
     ScopedPointer<DistortionSection> distortion_section_;
     ScopedPointer<StepSequencerSection> step_sequencer_section_;
     ScopedPointer<StutterSection> stutter_section_;
-    ScopedPointer<SubSection> sub_section_;
+    //ScopedPointer<SubSection> sub_section_;
+	ScopedPointer<EnvTriggerSection> env_trigger_section_;
     ScopedPointer<VoiceSection> voice_section_;
 
     int padding_;

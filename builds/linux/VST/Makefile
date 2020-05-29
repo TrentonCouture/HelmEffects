@@ -138,6 +138,7 @@ OBJECTS_SHARED_CODE := \
   $(JUCE_OBJDIR)/synth_base_c3ad3b73.o \
   $(JUCE_OBJDIR)/synth_gui_interface_6337839d.o \
   $(JUCE_OBJDIR)/bpm_slider_64fb0d57.o \
+  $(JUCE_OBJDIR)/env_trigger_button_21fbe541.o \
   $(JUCE_OBJDIR)/filter_response_7394009c.o \
   $(JUCE_OBJDIR)/filter_selector_c70de13a.o \
   $(JUCE_OBJDIR)/global_tool_tip_5f078e04.o \
@@ -174,6 +175,7 @@ OBJECTS_SHARED_CODE := \
   $(JUCE_OBJDIR)/distortion_section_2cd18141.o \
   $(JUCE_OBJDIR)/dynamic_section_846a1cf1.o \
   $(JUCE_OBJDIR)/envelope_section_a35a0a34.o \
+  $(JUCE_OBJDIR)/env_trigger_section_14b93f18.o \
   $(JUCE_OBJDIR)/extra_mod_section_ea9c0745.o \
   $(JUCE_OBJDIR)/feedback_section_56c0fe69.o \
   $(JUCE_OBJDIR)/filter_section_9094381c.o \
@@ -506,6 +508,11 @@ $(JUCE_OBJDIR)/bpm_slider_64fb0d57.o: ../../../src/editor_components/bpm_slider.
 	@echo "Compiling bpm_slider.cpp"
 	$(V_AT)$(CXX) $(JUCE_CXXFLAGS) $(JUCE_CPPFLAGS_SHARED_CODE) $(JUCE_CFLAGS_SHARED_CODE) -o "$@" -c "$<"
 
+$(JUCE_OBJDIR)/env_trigger_button_21fbe541.o: ../../../src/editor_components/env_trigger_button.cpp
+	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
+	@echo "Compiling env_trigger_button.cpp"
+	$(V_AT)$(CXX) $(JUCE_CXXFLAGS) $(JUCE_CPPFLAGS_SHARED_CODE) $(JUCE_CFLAGS_SHARED_CODE) -o "$@" -c "$<"
+
 $(JUCE_OBJDIR)/filter_response_7394009c.o: ../../../src/editor_components/filter_response.cpp
 	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling filter_response.cpp"
@@ -684,6 +691,11 @@ $(JUCE_OBJDIR)/dynamic_section_846a1cf1.o: ../../../src/editor_sections/dynamic_
 $(JUCE_OBJDIR)/envelope_section_a35a0a34.o: ../../../src/editor_sections/envelope_section.cpp
 	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling envelope_section.cpp"
+	$(V_AT)$(CXX) $(JUCE_CXXFLAGS) $(JUCE_CPPFLAGS_SHARED_CODE) $(JUCE_CFLAGS_SHARED_CODE) -o "$@" -c "$<"
+
+$(JUCE_OBJDIR)/env_trigger_section_14b93f18.o: ../../../src/editor_sections/env_trigger_section.cpp
+	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
+	@echo "Compiling env_trigger_section.cpp"
 	$(V_AT)$(CXX) $(JUCE_CXXFLAGS) $(JUCE_CPPFLAGS_SHARED_CODE) $(JUCE_CFLAGS_SHARED_CODE) -o "$@" -c "$<"
 
 $(JUCE_OBJDIR)/extra_mod_section_ea9c0745.o: ../../../src/editor_sections/extra_mod_section.cpp

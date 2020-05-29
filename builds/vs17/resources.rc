@@ -13,7 +13,6 @@ BEGIN
   BEGIN
     BLOCK "040904E4"
     BEGIN
-      VALUE "CompanyName",  "Matt Tytel\0"
       VALUE "FileDescription",  "HelmFX\0"
       VALUE "FileVersion",  "0.9.0\0"
       VALUE "ProductName",  "HelmFX\0"

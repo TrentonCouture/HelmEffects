@@ -8,10 +8,10 @@
               pluginWantsMidiIn="1" pluginProducesMidiOut="0" pluginSilenceInIsSilenceOut="0"
               pluginEditorRequiresKeys="1" pluginAUExportPrefix="helm" pluginRTASCategory=""
               aaxIdentifier="org.tytel.helm" pluginAAXCategory="2048" jucerVersion="5.4.7"
-              companyName="Matt Tytel" companyEmail="matthewtytel@gmail.com"
-              companyWebsite="tytel.org" pluginIsMidiEffectPlugin="0" buildAUv3="0"
-              displaySplashScreen="1" reportAppUsage="1" splashScreenColour="Dark"
-              buildStandalone="1" enableIAA="0" pluginFormats="buildAU,buildStandalone,buildVST,buildVST3"
+              companyEmail="matthewtytel@gmail.com" companyWebsite="tytel.org"
+              pluginIsMidiEffectPlugin="0" buildAUv3="0" displaySplashScreen="1"
+              reportAppUsage="1" splashScreenColour="Dark" buildStandalone="1"
+              enableIAA="0" pluginFormats="buildAU,buildStandalone,buildVST,buildVST3"
               pluginCharacteristicsValue="pluginWantsMidiIn,pluginEditorRequiresKeys"
               pluginRTASDisableBypass="0" pluginRTASDisableMultiMono="0" pluginAAXDisableBypass="0"
               pluginAAXDisableMultiMono="0" pluginVST3Category="Fx" headerPath="C:\ASIOSDK2.3\common">
@@ -209,6 +209,10 @@
       <GROUP id="{F6B7EBCD-CC70-2695-740C-D3D32C3E345A}" name="editor_components">
         <FILE id="VoqnNr" name="bpm_slider.cpp" compile="1" resource="0" file="src/editor_components/bpm_slider.cpp"/>
         <FILE id="n7YTSE" name="bpm_slider.h" compile="0" resource="0" file="src/editor_components/bpm_slider.h"/>
+        <FILE id="gAlo7C" name="env_trigger_button.cpp" compile="1" resource="0"
+              file="src/editor_components/env_trigger_button.cpp"/>
+        <FILE id="Tu7LT7" name="env_trigger_button.h" compile="0" resource="0"
+              file="src/editor_components/env_trigger_button.h"/>
         <FILE id="s9XJ9b" name="filter_response.cpp" compile="1" resource="0"
               file="src/editor_components/filter_response.cpp"/>
         <FILE id="JODds9" name="filter_response.h" compile="0" resource="0"
@@ -338,6 +342,10 @@
               file="src/editor_sections/envelope_section.cpp"/>
         <FILE id="iqtIWU" name="envelope_section.h" compile="0" resource="0"
               file="src/editor_sections/envelope_section.h"/>
+        <FILE id="P0dmAp" name="env_trigger_section.cpp" compile="1" resource="0"
+              file="src/editor_sections/env_trigger_section.cpp"/>
+        <FILE id="N8C3kX" name="env_trigger_section.h" compile="0" resource="0"
+              file="src/editor_sections/env_trigger_section.h"/>
         <FILE id="ghOTOw" name="extra_mod_section.cpp" compile="1" resource="0"
               file="src/editor_sections/extra_mod_section.cpp"/>
         <FILE id="hkjKvO" name="extra_mod_section.h" compile="0" resource="0"

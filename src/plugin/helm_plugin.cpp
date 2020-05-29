@@ -35,6 +35,8 @@ HelmPlugin::HelmPlugin()
 	)
 #endif
 {
+  first_run_ = true;
+
   set_state_time_ = 0;
 
   current_program_ = 0;
@@ -186,8 +188,12 @@ void HelmPlugin::processBlock(AudioSampleBuffer& buffer, MidiBuffer& midi_messag
   }
   */
 
-  //MidiMessage midi_message = MidiMessage::noteOn(0, 64, (float)64.0);
-  //midi_messages.addEvent(midi_message, 1);
+  if (first_run_)
+  {
+	  MidiMessage midi_message = MidiMessage::noteOn(0, 64, (float)64.0);
+	  midi_messages.addEvent(midi_message, 1);
+	  first_run_ = false;
+  }
 
 
   //buffer.clear();
